@@ -1,6 +1,6 @@
 
 export default function LatestHomePage(){
-    return( <div>
+    return( <>
         <div className = "latest-article">
             <h2>
                 업데이트 된 글 
@@ -13,6 +13,6 @@ export default function LatestHomePage(){
             
            title- 최신글제목 - title 최신글제목반복 
         </body>
-    </div>
+    </>
     )
 }

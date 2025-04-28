@@ -4,7 +4,6 @@ import './App.css';
 import LatestHomePage from './pages/LatestHomePage';
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>

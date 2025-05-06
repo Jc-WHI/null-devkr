@@ -3,7 +3,7 @@ export default function LatestHomePage(){
     return( <>
         <div className = "latest-article">
             <h2>
-                업데이트 된 글 
+                Jo's Diary
             </h2>
 
         </div>
@@ -11,7 +11,7 @@ export default function LatestHomePage(){
         
         <body>
             
-           title- 최신글제목 - title 최신글제목반복 
+           이 블로그는 현재 next.js로 개발중입니다. <br/> 
         </body>
     </>
     )

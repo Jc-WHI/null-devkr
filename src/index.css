@@ -1,68 +1,164 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+/* 기본 스타일 초기화 및 전체 폰트 설정 */
+body, html {
   margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #ffffff; /* 전체 배경 흰색 */
+  color: #000000; /* 기본 텍스트 검은색 */
+  line-height: 1.6;
+}
+
+#root {
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  flex-direction: column;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.about-me-page {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-button {
+.page-header, .page-footer {
+  padding: 20px 40px;
+  background-color: #f8f9fa; /* 약간 밝은 회색 배경으로 구분 */
+  text-align: center;
+}
+
+.page-header {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.page-footer {
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* 프로필 섹션 가운데 정렬 */
+.profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* 남은 공간을 채우도록 설정 */
+  padding: 40px 20px;
+}
+
+/* 프로필 카드 스타일 */
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); /* 은은한 그림자 효과 */
+  display: flex;
+  flex-direction: column; /* 모바일에서는 세로, 데스크탑에서는 가로로 변경 가능 */
+  align-items: center;
+  padding: 40px;
+  width: 100%;
+  max-width: 700px; /* 카드의 최대 너비 */
+  text-align: center;
+  border: 1px solid #eeeeee; /* 매우 옅은 테두리 */
+}
+
+/* 프로필 이미지 (또는 이니셜) */
+.profile-image-placeholder {
+  width: 120px;
+  height: 120px;
+  background-color: #000000; /* 검은색 배경 */
+  color: #ffffff; /* 흰색 글씨 */
+  border-radius: 50%; /* 원형 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.profile-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover; /* 이미지가 원형을 꽉 채우도록 */
+}
+
+/* 프로필 정보 */
+.profile-info h1 {
+  font-size: 2.2em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.job-aspirant {
+  font-size: 1.2em;
+  color: #333333; /* 약간 어두운 회색 */
+  margin-bottom: 24px;
+}
+
+.divider {
+  width: 80%;
+  border: none;
+  height: 1px;
+  background-color: #e0e0e0; /* 구분선 색상 */
+  margin: 24px auto;
+}
+
+/* 상세 정보 그리드 */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 반응형 그리드 */
+  gap: 20px; /* 항목 간 간격 */
+  width: 100%;
+  text-align: left; /* 그리드 내부 텍스트는 왼쪽 정렬 */
+  margin-top: 20px;
+}
+
+.info-item {
+  background-color: #f9f9f9; /* 각 항목 배경색 */
+  padding: 15px;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border: 1px solid #f0f0f0;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.info-label {
+  display: block;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #555555; /* 라벨 색상 */
+  margin-bottom: 6px;
+}
+
+.info-value {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #000000; /* 값 색상 */
+}
+
+/* 반응형 디자인: 화면 너비가 768px 이하일 때 */
+@media (min-width: 768px) {
+  .profile-card {
+    flex-direction: row; /* 데스크탑에서는 가로 배치 */
+    text-align: left;   /* 데스크탑에서는 왼쪽 정렬 */
+    align-items: flex-start; /* 위쪽 정렬 */
   }
-  a:hover {
-    color: #747bff;
+
+  .profile-image-placeholder {
+    margin-right: 40px; /* 이미지와 정보 사이 간격 */
+    margin-bottom: 0;
+    flex-shrink: 0; /* 이미지가 줄어들지 않도록 */
   }
-  button {
-    background-color: #f9f9f9;
+
+  .profile-info {
+    flex-grow: 1;
+  }
+
+  .profile-info h1, .job-aspirant {
+    text-align: left; /* 데스크탑에서 h1, p 태그도 왼쪽 정렬 */
+  }
+
+  .divider {
+    margin: 24px 0; /* 데스크탑에서는 왼쪽 정렬된 텍스트에 맞춰서 */
+    width: 100%;
   }
 }

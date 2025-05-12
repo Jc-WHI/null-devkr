@@ -1,13 +1,64 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href= />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jo's Diary</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> {/* favicon 경로를 적절히 수정해주세요 */}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>조치호 | 프론트엔드 개발자 포트폴리오</title> {/* 타이틀을 구체적으로 변경했습니다 */}
+</head>
+<body>
+  <div id="root">
+    {/* Next.js 앱이 이 안에 렌더링됩니다. 아래는 예시 페이지 컴포넌트입니다. */}
+    <div class="about-me-page">
+      <header class="page-header">
+        {/* 여기에 네비게이션 바 등이 위치할 수 있습니다. */}
+      </header>
+      <main class="profile-section">
+        <div class="profile-card">
+          <div class="profile-image-placeholder">
+            {/* 프로필 이미지를 넣는다면 여기에 <img /> 태그를 사용하세요 */}
+            {/* 예: <img src="/profile-picture.jpg" alt="조치호 프로필 사진" /> */}
+            <span>CH</span> {/* 이미지가 없을 경우 이니셜 표시 */}
+          </div>
+          <div class="profile-info">
+            <h1>조치호</h1>
+            <p class="job-aspirant">프론트엔드 개발자 지망생</p>
+            <hr class="divider" />
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="info-label">이름</span>
+                <span class="info-value">조치호</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">학력</span>
+                <span class="info-value">동아대학교 졸업</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">주전공</span>
+                <span class="info-value">기계공학과</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">부전공</span>
+                <span class="info-value">컴퓨터공학과</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">학점</span>
+                <span class="info-value">3.0 / 4.3</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">목표</span>
+                <span class="info-value">프론트엔드 개발자</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="page-footer">
+        {/* 여기에 저작권 정보 등이 위치할 수 있습니다. */}
+        <p>&copy; 2025 Jo Chiho. All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
 </html>

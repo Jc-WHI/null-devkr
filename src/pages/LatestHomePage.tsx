@@ -17,7 +17,7 @@ export default function LatestHomePage() {
       <main className="profile-section">
         <div className="profile-card">
           <div className="profile-image-placeholder">
-            {<img src="/img.jpg" alt="조치호 프로필 사진" /> }
+            <img src="/img.jpg" alt="조치호 프로필 사진" />
           
           </div>
           <div className="profile-info">

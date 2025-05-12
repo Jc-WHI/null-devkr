@@ -1,6 +1,5 @@
 // src/pages/LatestHomePage.tsx
 
-import React from 'react';
 // 만약 styled-components를 이 파일 내에서 사용한다면 import 하세요.
 // import styled from 'styled-components';
 import '../app/about.css'; // 이전에 생성한 CSS 파일 경로 (프로젝트 구조에 맞게 조정)

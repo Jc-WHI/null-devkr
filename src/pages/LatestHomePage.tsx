@@ -2,7 +2,7 @@
 
 // 만약 styled-components를 이 파일 내에서 사용한다면 import 하세요.
 // import styled from 'styled-components';
-import '../app/about.css'; // 이전에 생성한 CSS 파일 경로 (프로젝트 구조에 맞게 조정)
+ // 이전에 생성한 CSS 파일 경로 (프로젝트 구조에 맞게 조정)
 
 // 예시: styled-components를 사용하여 컴포넌트 스타일링
 // const PageWrapper = styled.div`

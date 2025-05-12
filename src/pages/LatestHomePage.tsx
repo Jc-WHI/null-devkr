@@ -17,8 +17,8 @@ export default function LatestHomePage() {
       <main className="profile-section">
         <div className="profile-card">
           <div className="profile-image-placeholder">
-            {/* <img src="/path-to-your-image.jpg" alt="조치호 프로필 사진" /> */}
-            <span>JH</span> {/* 이미지가 없을 경우 이니셜 */}
+            {<img src="/img.jpg" alt="조치호 프로필 사진" /> }
+          
           </div>
           <div className="profile-info">
             <h1>조치호</h1>

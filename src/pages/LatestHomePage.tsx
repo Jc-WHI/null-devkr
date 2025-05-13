@@ -1,5 +1,7 @@
 // src/pages/LatestHomePage.tsx
 
+import FirstPortfolio from "./FirstPortfolio";
+
 // 1. about.css import 구문이 있다면 완전히 삭제합니다.
 // 2. React import도 사용하지 않는다면 삭제합니다 (이전 오류 관련).
 
@@ -43,6 +45,10 @@ export default function LatestHomePage() {
               <div className="info-item">
                 <span className="info-label">목표</span>
                 <span className="info-value">프론트엔드 개발자</span>
+              </div>
+              <div className="test">
+                <FirstPortfolio/>
+
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@
 import { useContext } from 'react';
 // DarkModeContext와 DarkContextType의 정확한 경로로 수정해주세요.
 // 예를 들어, context 파일이 src/contexts/DarkMode.tsx 라면 아래와 같이 됩니다.
-import { DarkModeContext, DarkContextType, DarkMode } from '../contexts/DarkMode';
+import { DarkModeContext, DarkContextType } from '../contexts/DarkMode';
 
 const ThemeToggleButton = () => {
   // DarkModeContext에서 값들을 가져옵니다.

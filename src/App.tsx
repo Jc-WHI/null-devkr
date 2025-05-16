@@ -1,48 +1,60 @@
 // src/App.tsx
-import { useContext, useEffect } from 'react';
-import './App.css'; // 전역 스타일 및 테마 스타일
+import { useContext, useEffect, JSX } from 'react'; // JSX 타입을 추가했습니다.
+import './App.css'; // 전역 스타일 및 테마별 스타일 (이 파일이 존재하고 스타일이 정의되어 있어야 합니다)
 import LatestHomePage from './pages/LatestHomePage';
 
-// DarkModeProvider, DarkModeContext, ThemeToggleButton의 정확한 경로로 수정해주세요.
-// 예를 들어, DarkMode.tsx가 src/contexts/DarkMode.tsx에 있고,
-// ThemeToggleButton.tsx가 src/components/ThemeToggleButton.tsx에 있다면 아래와 같습니다.
+/*
+  [중요] 아래 import 경로는 사용자님의 프로젝트 구조에 맞게 정확히 지정해야 합니다.
+  - DarkMode.tsx 파일이 예를 들어 'src/contexts/DarkMode.tsx'에 있다면, 현재 경로는 올바습니다.
+  - ThemeToggleButton.tsx 파일이 예를 들어 'src/components/ThemeToggleButton.tsx'에 있다면, 현재 경로는 올바습니다.
+  경로가 다를 경우, 실제 파일 위치에 맞게 수정해주세요.
+*/
 import { DarkModeProvider, DarkModeContext, DarkContextType } from './contexts/DarkMode';
 import ThemeToggleButton from './components/ThemeToggleButton';
 
-// App의 주요 내용을 담는 내부 컴포넌트
-// DarkModeContext에 접근하기 위해 Provider 내부에 위치해야 합니다.
-function AppContent() {
+/**
+ * AppContent 컴포넌트
+ * - 실제 애플리케이션의 주요 콘텐츠를 렌더링합니다.
+ * - DarkModeContext에 접근하여 테마를 적용하고, 테마 전환 버튼을 포함합니다.
+ * - DarkModeProvider 내부에 위치해야 DarkModeContext의 값을 올바르게 사용할 수 있습니다.
+ */
+function AppContent(): JSX.Element { // 반환 타입으로 JSX.Element 명시
   const context = useContext(DarkModeContext);
 
-  // context가 없는 경우 (Provider 외부에서 사용 시)를 대비
+  // DarkModeProvider가 상위에 없을 경우, context는 undefined가 될 수 있습니다.
+  // 이 경우 에러를 발생시켜 개발 단계에서 문제를 인지하도록 합니다.
   if (!context) {
-    throw new Error('AppContent는 DarkModeProvider 내부에서 사용되어야 합니다.');
+    throw new Error('AppContent must be used within a DarkModeProvider');
   }
 
-  const { mode } = context as DarkContextType; // 현재 테마 모드 가져오기
+  const { mode } = context as DarkContextType; // context가 유효함을 확인했으므로 타입 단언 사용
 
-  // 현재 테마 모드(mode)가 변경될 때마다 document.body의 클래스를 업데이트합니다.
+  // 'mode' (테마 상태)가 변경될 때마다 실행되는 Effect Hook
   useEffect(() => {
-    // 이전 테마 클래스가 있다면 제거합니다.
+    // body 태그에서 이전 테마 관련 클래스를 모두 제거합니다.
     document.body.classList.remove('light-theme', 'dark-theme');
-    // 현재 모드에 맞는 클래스를 추가합니다.
+    // 현재 'mode'에 해당하는 테마 클래스를 body 태그에 추가합니다.
     document.body.classList.add(mode === 'light' ? 'light-theme' : 'dark-theme');
-  }, [mode]); // 'mode'가 변경될 때만 이 effect가 실행됩니다.
+  }, [mode]); // 의존성 배열에 'mode'를 넣어, 'mode'가 변경될 때만 이 effect가 실행되도록 합니다.
 
   return (
     <>
-      <ThemeToggleButton /> {/* 다크 모드 전환 버튼 */}
+      <ThemeToggleButton /> {/* 다크/라이트 모드 전환 버튼 */}
       <LatestHomePage />
-      {/* 여기에 다른 페이지 컴포넌트나 라우팅 로직이 들어갈 수 있습니다. */}
+      {/* 추가적인 페이지 컴포넌트나 라우팅 로직이 이곳에 위치할 수 있습니다. */}
     </>
   );
 }
 
-// 메인 App 컴포넌트
-function App() {
+/**
+ * 메인 App 컴포넌트
+ * - 애플리케이션의 최상위 진입점입니다.
+ * - DarkModeProvider를 사용하여 앱 전체에 다크 모드 컨텍스트를 제공합니다.
+ */
+function App(): JSX.Element { // 반환 타입으로 JSX.Element 명시
   return (
-    // DarkModeProvider로 AppContent (실제 앱 내용)를 감싸줍니다.
-    // 이렇게 하면 AppContent 및 그 모든 하위 컴포넌트들이 DarkModeContext에 접근할 수 있게 됩니다.
+    // DarkModeProvider로 AppContent를 감싸 실제 앱 내용에 컨텍스트를 제공합니다.
+    // 이를 통해 AppContent 및 그 모든 하위 컴포넌트들이 DarkModeContext에 접근할 수 있게 됩니다.
     <DarkModeProvider>
       <AppContent />
     </DarkModeProvider>

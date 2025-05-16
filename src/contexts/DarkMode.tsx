@@ -2,7 +2,7 @@ import {createContext, useState,ReactNode} from 'react';
 
 export type DarkMode = 'light' |'dark';
 
-interface DarkContextType{
+export interface DarkContextType{
     mode:DarkMode;
     toggleMode: ()=>void;
 

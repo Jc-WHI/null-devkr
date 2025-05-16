@@ -1,6 +1,6 @@
 import {createContext, useState,ReactNode} from 'react';
 
-type DarkMode = 'light' |'dark';
+export type DarkMode = 'light' |'dark';
 
 interface DarkContextType{
     mode:DarkMode;
